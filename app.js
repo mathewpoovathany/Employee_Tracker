@@ -1062,8 +1062,8 @@ const updateEmployeeRole = () => {
                 const { employee } = answer;
 
                 let e_full_name = splitName(employee);
-                first_name = e_full_name[0];
-                last_name = e_full_name[1];
+                let first_name = e_full_name[0];
+                let last_name = e_full_name[1];
                 
                 const query = new Queries();
                 const viewEmployeeIdByName = query.viewEmployeeIdByName();

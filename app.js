@@ -95,6 +95,8 @@ const askQuestions = () => {
                 case 'Exit':
                   endExecution();
                 break;
+                default:
+                    endExecution();
             }
       });
 

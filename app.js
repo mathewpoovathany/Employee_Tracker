@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const cTable = require('console.table');
 const Database = require("./lib/Database");
 const Queries = require("./lib/Queries");
-
+/*
 const database = new Database({
     host: "localhost",
     // Your port; if not 3306
@@ -10,10 +10,20 @@ const database = new Database({
     // Your username
     user: "root",
     // Your password
-    password: "Kate2016",
+    password: "",
     database: "employee_tracker_cms"
 });
-
+*/
+const database = new Database({
+    host: "axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    // Your port; if not 3306
+    port: 3306,
+    // Your username
+    user: "rrs48eweafjo0enu",
+    // Your password
+    password: "wyjnjsxrzfljfb3a",
+    database: "gz9wl2njuqwby86g"
+});
 const askQuestions = () => {
 
     inquirer

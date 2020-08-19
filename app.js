@@ -13,7 +13,7 @@ const database = new Database({
     password: "",
     database: "employee_tracker_cms"
 });
-*/
+**/
 const database = new Database({
     host: "axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     // Your port; if not 3306

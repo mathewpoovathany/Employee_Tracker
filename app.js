@@ -2,25 +2,12 @@ const inquirer = require("inquirer");
 const cTable = require('console.table');
 const Database = require("./lib/Database");
 const Queries = require("./lib/Queries");
-/*
-const database = new Database({
-    host: "localhost",
-    // Your port; if not 3306
-    port: 3306,
-    // Your username
-    user: "root",
-    // Your password
-    password: "",
-    database: "employee_tracker_cms"
-});
-**/
+
 const database = new Database({
     host: "axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    // Your port; if not 3306
+   
     port: 3306,
-    // Your username
     user: "rrs48eweafjo0enu",
-    // Your password
     password: "wyjnjsxrzfljfb3a",
     database: "gz9wl2njuqwby86g"
 });
@@ -636,7 +623,7 @@ const addEmployee = () => {
 
 const assignRoleToDept = () => {
 
-    //Select a role to be assigned to a department:
+    
     let jobTitleList = [];
     let deptList = [];
     let dept_id;

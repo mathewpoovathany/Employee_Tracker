@@ -44,7 +44,7 @@ const askQuestions = () => {
                   viewAllEmployees();
                 break;
                 case 'View All Employees By Department':
-                  viewAllEmployeesByDept();
+                  viewAllEmployeesByDepartment();
                 break;
                 case 'View All Employees By Role':
                   viewAllEmployeesByRole();
@@ -98,7 +98,7 @@ askQuestions();
 
 const createTable = rows => {
 
-    let dataTable = [];
+    let dataInTable = [];
     
     for (let i = 0; i < rows.length; i++) {
         const { id, first_name, last_name, title, department, salary, manager } = rows[i];
@@ -111,24 +111,23 @@ const createTable = rows => {
         obj["salary"] = salary;
         obj["manager"] = manager;
 
-        dataTable.push(obj);
+        dataInTable.push(obj);
     }
 
-    const table = consoleTable.getTable(dataTable);
+    return consoleTable.getTable(dataInTable);
         
-    return table;            
 
 }
 
 const createList = (rows, item) => {
 
-    let list = [];
+    let Items = [];
 
     for (let i = 0; i < rows.length; i++) {
-        list.push(rows[i][item]);
+        Items.push(rows[i][item]);
     }
 
-    return list;
+    return Items;
 
 }
 
@@ -137,10 +136,10 @@ const requireLetters = value => {
         return true;
     }
     
-    return 'Answer must be alphabetical';
+    return 'Your answer must be alphabetical';
 }
 
-const requireNumbers = value => {
+const OnlyNumbers = value => {
     if (/^\d+$/.test(value)) {
         return true;
     }
@@ -162,18 +161,18 @@ const initialCaps = words => {
 
     words = words.split(" ");
 
-    let capitalized_words = "";
+    let capitalized_word = "";
     
     for (let i = 0; i < words.length; i++) {
         const first_letter = words[i].substring(0, 1);
         const rest_of_word = words[i].substr(1);
         const capital_letter = first_letter.toUpperCase();
-        capitalized_words += capital_letter + rest_of_word + " ";
+        capitalized_word += capital_letter + rest_of_word + " ";
     }
     
-    capitalized_words = capitalized_words.trim();
+    capitalized_word = capitalized_word.trim();
     
-    return capitalized_words;
+    return capitalized_word;
 
 }
 
@@ -294,7 +293,7 @@ const updateEmployeeManager = () => {
                         return;
                     }
                     else if (rows.changedRows === 1) {
-                        console.log("Manager successfully assigned to employee");
+                        console.log("Manager successfully assigned to the employee");
                     }
                     else if (rows.changedRows === 0) {
                         console.log("That manager is already assigned to that employee.");
@@ -314,7 +313,7 @@ const updateEmployeeManager = () => {
 
 }
 
-const viewAllEmployeesByDept = () => {
+const viewAllEmployeesByDepartment = () => {
 
     const query = new Queries();
     const viewAllDepartments = query.viewAllDepartments();
@@ -367,9 +366,9 @@ const viewAllEmployeesByDept = () => {
 const viewDept = (dept) => {
 
     const query = new Queries();
-    const viewAllEmployeesByDept = query.viewAllEmployeesByDept();
+    const viewAllEmployeesByDepartment = query.viewAllEmployeesByDepartment();
 
-    Db.query(viewAllEmployeesByDept, dept).then(rows => {
+    Db.query(viewAllEmployeesByDepartment, dept).then(rows => {
   
         const dataTable = createTable(rows);
         console.log(dataTable);
@@ -606,7 +605,7 @@ const addRole = () => {
                     type: 'input',
                     name: 'salary',
                     message: 'What is this salary for this job?',
-                    validate: requireNumbers
+                    validate: OnlyNumbers
                 },
                 {
                     type: 'list',

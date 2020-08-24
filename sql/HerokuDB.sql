@@ -1,3 +1,4 @@
+/*
 USE employee_tracker_cms;
 
 CREATE TABLE employee(
@@ -32,7 +33,7 @@ DROP INDEX Key_name ON department;
 
 ALTER TABLE department ADD UNIQUE (name);
 ALTER TABLE role ADD UNIQUE (title);
-
-SELECT * FROM employee;
+*/
+-- SELECT * FROM employee;
 SELECT * FROM department;
-SELECT * FROM role;
+-- SELECT * FROM role;
